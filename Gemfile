@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'sanitize', '~> 4.0', '>= 4.0.1'
+gem 'i18n', '~> 0.7.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
