@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-      registrations: 'users/registrations'
+      registrations: 'users/registrations',
+      sessions: 'users/sessions',
+      passwords: 'users/passwords'
   }
 
   scope '/:locale' do
     resources :users
   end
 
-  devise_scope :user do
-    authenticated :user do
-      root 'welcome#index', as: :authenticated_root
-    end
-    root :to => 'devise/sessions#new'
-  end
+  root 'welcome#index'
 
 end
