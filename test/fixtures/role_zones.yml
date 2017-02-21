@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  canCreate: false
+  canRead: false
+  canUpdate: false
+  canDelete: false
+
+two:
+  canCreate: false
+  canRead: false
+  canUpdate: false
+  canDelete: false
