@@ -1,0 +1,12 @@
+es:
+  users: "Usuarios"
+  projects: "Proyectos"
+  testSuites: "Suite de pruebas"
+  testCases: "Casos de uso"
+  management: "Gestión"
+  buildsRrelease: "Versiones"
+  testPlans: "Planes de pruebas"
+  testExecution: "Ejecución de pruebas"
+  miscellaneous: "Otros"
+  keywords: "Palabras claves"
+  platforms: "Plataformas"

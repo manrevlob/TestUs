@@ -1,0 +1,13 @@
+en:
+  users: "Users"
+  projects: "Projects"
+  testSuites: "Test suites"
+  testCases: "Test cases"
+  management: "Management"
+  buildsRelease: "Builds / Release"
+  testPlans: "Test plans"
+  testExecution: "Test execution"
+  miscellaneous: "Miscellaneous"
+  keywords: "Keywords"
+  platforms: "Platforms"
+

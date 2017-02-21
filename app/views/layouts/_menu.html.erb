@@ -1,8 +1,13 @@
 <ul >
-  <li ><a href="index.html" >HOME</a></li>
-  <li><a href="work.html" class="black" > WORK</a></li>
-  <li><a href="about.html" class="black1"> ABOUT</a></li>
-  <li><a href="blog.html" class="black2" > BLOG</a></li>
-  <li  class="active"><a href="404.html" class="black3" > SERVICES</a></li>
-  <li><a href="contact.html" class="black4" > CONTACT</a></li>
+  <li class="option"><%= link_to t('users')%></li>
+  <li class="option"><%= link_to t('projects')%></li>
+  <li class="option"><%= link_to t('testSuites')%></li>
+  <li class="option"><%= link_to t('testCases')%></li>
+  <li class="separation"><%=t('management')%></li>
+  <li class="option"><%= link_to t('buildsRelease')%></li>
+  <li class="option"><%= link_to t('testPlans')%></li>
+  <li class="option"><%= link_to t('testExecution')%></li>
+  <li class="separation"><%=t('miscellaneous')%></li>
+  <li class="option"><%= link_to t('keywords')%></li>
+  <li class="option"><%= link_to t('platforms')%></li>
 </ul>
