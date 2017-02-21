@@ -92,3 +92,11 @@ manages = Manage.create([
 {:canCreate => false, :canRead => false, :canUpdate => false, :canDelete => false, :role_id => Role.find_by(name: "Tester_Senior").id, :zone_id => Zone.find_by(name: "Platform").id},
 {:canCreate => false, :canRead => false, :canUpdate => false, :canDelete => false, :role_id => Role.find_by(name: "Tester_Senior").id, :zone_id => Zone.find_by(name: "Keyword").id},
                          ])
+
+users = User.create([
+    {:name => "Manuel", :surname => "Revilla", :email => "rev@testUs.com", :username => "manu", :password => "123456", :role_id => Role.find_by(name: "Admin").id, :active => true},
+    {:name => "Francisco", :surname => "Valle", :email => "pak@testUs.com", :username => "paco", :password => "123456", :role_id => Role.find_by(name: "Admin").id, :active => true},
+    {:name => "Tester", :surname => "Designer", :email => "designer@testUs.com", :username => "designer", :password => "123456", :role_id => Role.find_by(name: "Tester_Designer").id, :active => true},
+    {:name => "Tester", :surname => "Junior", :email => "junior@testUs.com", :username => "junior", :password => "123456", :role_id => Role.find_by(name: "Tester_Junior").id, :active => true},
+    {:name => "Viewer", :surname => "User", :email => "viewer@testUs.com", :username => "viewer", :password => "123456", :role_id => Role.find_by(name: "Viewer").id, :active => true},
+                    ])
