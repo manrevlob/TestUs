@@ -21,6 +21,7 @@
 
 es:
   hello: "Hola Mundo"
-  signIn: "Registrarse"
-  signOut: "Cerrar sesion"
+  signIn: "Iniciar sesión"
+  signOut: "Cerrar sesión"
+  signUp: "Registrar usuario"
   index: "Inicio"

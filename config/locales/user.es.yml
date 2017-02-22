@@ -1,0 +1,10 @@
+es:
+  userList:               "Lista de usuarios"
+  userName:               "Nombre"
+  userSurname:            "Apellidos"
+  userEmail:              "Correo"
+  userUsername:           "Usuario"
+  userPassword:           "Contraseña (6 caracteres minimos)"
+  userConfPassword:       "Confirmar contraseña"
+  userActive:             "Activo"
+  userRole:               "Rol"

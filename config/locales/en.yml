@@ -23,4 +23,5 @@ en:
   hello: "Hello world"
   signIn: "Sign in"
   signOut: "Sign Out"
+  signUp: "Sign Up"
   index: "Index"

@@ -1,0 +1,10 @@
+en:
+  userList:               "User List"
+  userName:               "Name"
+  userSurname:            "Surname"
+  userEmail:              "Email"
+  userUsername:           "Username"
+  userPassword:           "Password (6 characters minimum)"
+  userConfPassword:       "Confirm password"
+  userActive:             "Active"
+  userRole:               "Role"
