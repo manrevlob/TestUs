@@ -11,13 +11,9 @@
   <div class="header">
     <div class="header-left">
       <div class="logo">
-
           <%= image_tag("Us-Logo.png", :alt => "logo") %>
-
       </div>
-      <div class="top-nav">
         <%= render "layouts/menu" %>
-      </div>
       <ul class="social-in">
         <li>
           <%= link_to fa_icon("power-off"), destroy_user_session_path, method: :delete %>

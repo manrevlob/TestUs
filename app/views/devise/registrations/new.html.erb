@@ -23,7 +23,7 @@
       </div>
 
       <div class="field">
-        <%= f.check_box :active %>
+        <%= f.check_box :active, class: "check" %>
         <%= f.label t('userActive') %>
       </div>
 
@@ -40,9 +40,9 @@
         <%= f.collection_select :role_id, @roles, :id, :name %>
       </div>
 
-      <div class="actions">
-        <%= f.submit t('signUp') %>
-      </div>
+      <button>
+        <%= t('signUp') %>
+      </button>
     <% end %>
 
     <p class="message">

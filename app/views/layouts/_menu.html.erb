@@ -1,13 +1,23 @@
-<ul >
-  <li class="option"><%= link_to t('users')%></li>
-  <li class="option"><%= link_to t('projects')%></li>
-  <li class="option"><%= link_to t('testSuites')%></li>
-  <li class="option"><%= link_to t('testCases')%></li>
-  <li class="separation"><%=t('management')%></li>
-  <li class="option"><%= link_to t('buildsRelease')%></li>
-  <li class="option"><%= link_to t('testPlans')%></li>
-  <li class="option"><%= link_to t('testExecution')%></li>
-  <li class="separation"><%=t('miscellaneous')%></li>
-  <li class="option"><%= link_to t('keywords')%></li>
-  <li class="option"><%= link_to t('platforms')%></li>
-</ul>
+<nav class="navigation">
+  <ul class="mainmenu">
+    <li><a href=""><%= fa_icon("user") %> <%= t('users') %></a>
+      <ul class="submenu">
+        <li><a href=""><%= fa_icon("list") %> <%= t('listAll') %></a></li>
+        <li><a href=""><%= fa_icon("plus") %> <%= t('createNew') %></a></li>
+      </ul>
+    </li>
+    <li><a href=""><%= fa_icon("object-group") %> <%= t('projects') %></a></li>
+    <li><a href=""><%= fa_icon("list-alt") %> <%= t('testSuites') %></a>
+      <ul class="submenu">
+        <li><a href=""><%= fa_icon("list") %> <%= t('listAll') %></a></li>
+        <li><a href=""><%= fa_icon("plus") %> <%= t('createNew') %></a></li>
+      </ul>
+    </li>
+    <li><a href=""><%= fa_icon("vcard-o") %> <%= t('testCases') %></a></li>
+    <li><a href=""><%= fa_icon("cubes") %> <%= t('buildsRelease') %></a></li>
+    <li><a href=""><%= fa_icon("paper-plane-o") %> <%= t('testPlans') %></a></li>
+    <li><a href=""><%= fa_icon("flask") %> <%= t('testExecution') %></a></li>
+    <li><a href=""><%= fa_icon("tags") %> <%= t('keywords') %></a></li>
+    <li><a href=""><%= fa_icon("laptop") %> <%= t('platforms') %></a></li>
+  </ul>
+</nav>
