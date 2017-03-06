@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <% @zones.each do |zone| %>
+        <th colspan="4"><%= zone.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @roles.each do |role| %>
+      <tr>
+          <th><%= role.name %></th>
+          <% @zones.each do |zone| %>
+            <% manage = @manages.where(role_id: role.id, zone_id: zone.id).first %>
+              <td>
+                <%= check_box(role.name + "_" + zone.name, manage.id, {checked: manage.canCreate}) %>
+              </td>
+              <td>
+                <%= check_box(role.name + "_" + zone.name, manage.id, {checked: manage.canRead}) %>
+              </td>
+              <td>
+                <%= check_box(role.name + "_" + zone.name, manage.id, {checked: manage.canUpdate}) %>
+              </td>
+              <td>
+                <%= check_box(role.name + "_" + zone.name, manage.id, {checked: manage.canDelete}) %>
+              </td>
+          <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
