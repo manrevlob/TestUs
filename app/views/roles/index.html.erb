@@ -1,22 +1,27 @@
-<table class="responstable">
-  <h1>Manage roles</h1>
-  <thead>
-  <th><%= t('userRole') %></th>
-  <th><%= t('userDescription') %></th>
-  </thead>
-  <tbody>
-  <% @roles.each do |role| %>
-      <tr>
-        <td>
-          <%= role.name %>
-        </td>
-        <td >
-          <%= role.description %>
-        </td>
-        <td >
-          <%= link_to fa_icon('pencil'), edit_role_path(role)  %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <h1>Manage roles</h1>
+    <thead>
+    <th><%= t('userRole') %></th>
+    <th colspan="3"><%= t('userDescription') %></th>
+    </thead>
+    <tbody>
+    <% @roles.each do |role| %>
+        <tr>
+          <td class="col-md-3">
+            <%= role.name %>
+          </td>
+          <td class="col-md-9">
+            <%= role.description %>
+          </td>
+          <td  >
+            <%= link_to fa_icon('pencil'), edit_role_path(role)  %>
+          </td>
+          <td  >
+            <%= link_to fa_icon('remove'), role, method: :delete, data: { confirm: t('confirmDelete') } %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
