@@ -2,7 +2,7 @@
 
 /* define a fixed width for the entire menu */
 .navigation {
-    width: 300px;
+    width: 100%;
 }
 
 /* reset our lists to remove bullet points and padding */

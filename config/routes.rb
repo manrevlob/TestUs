@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :manages
+  resources :roles
+
 
   root 'welcome#index'
 

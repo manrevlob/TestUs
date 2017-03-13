@@ -8,3 +8,4 @@ en:
   userConfPassword:       "Confirm password"
   userActive:             "Active"
   userRole:               "Role"
+  userDescription:        "Description"

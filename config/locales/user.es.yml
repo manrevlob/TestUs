@@ -8,3 +8,4 @@ es:
   userConfPassword:       "Confirmar contraseña"
   userActive:             "Activo"
   userRole:               "Rol"
+  userDescription:        "Descripción"
