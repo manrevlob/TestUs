@@ -1,0 +1,6 @@
+es:
+  projectName: "Nombre"
+  projectDescription: "Descripción"
+  projectActive: "Activo"
+  projectPublic: "Público"
+  projectSave: "Guardar"

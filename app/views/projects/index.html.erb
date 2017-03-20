@@ -1,0 +1,27 @@
+<h1><%= t('projects') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('projectName') %></th>
+      <th><%= t('projectPublic') %></th>
+      <th><%= t('projectActive') %></th>
+      <th colspan="3"><%= t('projectDescription') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @projects.each do |project| %>
+        <tr>
+          <td class="col-md-2"><%= project.name %></td>
+          <td class="col-md-1"><%= project.public %></td>
+          <td class="col-md-1"><%= project.active %></td>
+          <td class="col-md-9"><%= project.description %></td>
+          <td><%= link_to fa_icon("pencil") , edit_project_path(project) %></td>
+          <td><%= link_to fa_icon("remove") , project, method: :delete, data: { confirm: t('confirmDelete') } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

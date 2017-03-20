@@ -25,3 +25,8 @@ en:
   signOut: "Sign Out"
   signUp: "Sign Up"
   index: "Index"
+  show: "Show"
+  edit: "Edit"
+  back: "Back"
+  delete: "Delete"
+  confirmDelete: "Are you sure?"

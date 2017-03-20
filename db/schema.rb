@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221155204) do
+ActiveRecord::Schema.define(version: 20170308170434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Projects_Users", id: false, force: :cascade do |t|
+    t.integer "user_id",    null: false
+    t.integer "project_id", null: false
+  end
 
   create_table "manages", force: :cascade do |t|
     t.boolean  "canCreate"
@@ -26,6 +31,15 @@ ActiveRecord::Schema.define(version: 20170221155204) do
     t.integer  "zone_id"
     t.index ["role_id"], name: "index_manages_on_role_id", using: :btree
     t.index ["zone_id"], name: "index_manages_on_zone_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "active"
+    t.boolean  "public"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "roles", force: :cascade do |t|

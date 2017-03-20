@@ -25,3 +25,8 @@ es:
   signOut: "Cerrar sesión"
   signUp: "Registrar usuario"
   index: "Inicio"
+  show: "Show"
+  back: "Volver"
+  edit: "Editar"
+  delete: "Eliminar"
+  confirmDelete: "¿Estás seguro?"

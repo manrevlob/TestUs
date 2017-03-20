@@ -2,17 +2,41 @@
   <ul class="mainmenu">
     <li><a href=""><%= fa_icon("user") %> <%= t('users') %></a>
       <ul class="submenu">
-        <li><a href=""><%= fa_icon("list") %> <%= t('listAll') %></a></li>
-        <li><a href=""><%= fa_icon("plus") %> <%= t('createNew') %></a></li>
+        <li>
+          <%= link_to users_path do %>
+              <%= fa_icon("list") %>
+              <%= t('listAll') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_path do %>
+              <%= fa_icon("plus") %>
+              <%= t('createNew') %>
+          <% end %>
         <li>
           <%= link_to roles_path do %>
-              <%= fa_icon("plus") %>
+              <%= fa_icon("list") %>
               <%= t('userRole') %>
           <% end %>
         </li>
       </ul>
     </li>
-    <li><a href=""><%= fa_icon("object-group") %> <%= t('projects') %></a></li>
+    <li><a href=""><%= fa_icon("object-group") %> <%= t('projects') %></a>
+      <ul class="submenu">
+        <li>
+          <%= link_to projects_path do %>
+              <%= fa_icon("list") %>
+              <%= t('listAll') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_project_path do %>
+              <%= fa_icon("plus") %>
+              <%= t('createNew') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
     <li><a href=""><%= fa_icon("list-alt") %> <%= t('testSuites') %></a>
       <ul class="submenu">
         <li><a href=""><%= fa_icon("list") %> <%= t('listAll') %></a></li>
