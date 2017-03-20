@@ -17,4 +17,6 @@ class ManagesController < ApplicationController
     redirect_to products_path
   end
 
+
+
 end

@@ -70,11 +70,11 @@ h1{
     margin: 30px;
 }
 
-.w3 {
-    width: 30%;
-}
-.w7 {
-    width: 70%;
+.forms {
+    -moz-box-shadow: 0 0 5px 5px #c37087;
+    -webkit-box-shadow: 0 0 5px 5px #c37087;
+    box-shadow: 0 0 5px 5px #c37087;
+    padding: 2em 2em 4em 2em;
 }
 .top-nav ul li {
     list-style:none;
@@ -215,6 +215,7 @@ p.footer-class a:hover{
     padding:1.5em;
     background:#fff;
     margin:1.5em;
+    height: 95%;
 }
 .work-top,.work-in{
     float:left;
