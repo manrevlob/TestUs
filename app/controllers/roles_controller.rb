@@ -7,7 +7,7 @@ class RolesController < ApplicationController
 
   def update
     if @role.update(role_params)
-      flash[:error] = "Profile updated"
+      flash[:success] = "Profile updated"
       redirect_to roles_path
     else
       render 'edit'

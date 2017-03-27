@@ -9,3 +9,5 @@ en:
   userActive:             "Active"
   userRole:               "Role"
   userDescription:        "Description"
+  userSave:               "User saved"
+  userDelete:             "User deleted"

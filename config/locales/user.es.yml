@@ -9,3 +9,5 @@ es:
   userActive:             "Activo"
   userRole:               "Rol"
   userDescription:        "Descripción"
+  userSave:               "Usuario creado"
+  userDelete:             "Usuario eliminado"

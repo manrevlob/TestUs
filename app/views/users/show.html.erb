@@ -1,0 +1,22 @@
+<p>
+  <strong><%= t('userName') %></strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%= t('userSurname') %></strong>
+  <%= @user.surname %>
+</p>
+
+<p>
+  <strong><%= t('userEmail') %></strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= t('userRole') %></strong>
+  <%= @user.role.name %>
+</p>
+
+<%= link_to t('edit'), edit_user_path(@user) %> |
+<%= link_to t('back'), users_path %>

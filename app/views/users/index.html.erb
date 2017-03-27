@@ -1,0 +1,27 @@
+<h1><%= t('users') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t('userName') %></th>
+        <th><%= t('userSurname') %></th>
+        <th><%= t('userEmail') %></th>
+        <th colspan="3"><%= t('userRole') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td class="col-md-3"><%= user.name %></td>
+          <td class="col-md-3"><%= user.surname %></td>
+          <td class="col-md-3"><%= user.email %></td>
+          <td class="col-md-3"><%= user.role.name %></td>
+          <td><%= link_to fa_icon("pencil") , edit_user_path(user) %></td>
+          <td><%= link_to fa_icon("remove") , user, method: :delete, data: { confirm: t('confirmDelete') } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

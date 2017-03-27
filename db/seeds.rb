@@ -99,4 +99,18 @@ users = User.create([
     {:name => "Tester", :surname => "Designer", :email => "designer@testUs.com", :username => "designer", :password => "123456", :role_id => Role.find_by(name: "Tester_Designer").id, :active => true},
     {:name => "Tester", :surname => "Junior", :email => "junior@testUs.com", :username => "junior", :password => "123456", :role_id => Role.find_by(name: "Tester_Junior").id, :active => true},
     {:name => "Viewer", :surname => "User", :email => "viewer@testUs.com", :username => "viewer", :password => "123456", :role_id => Role.find_by(name: "Viewer").id, :active => true},
+    {:name => "Prueba", :surname => "Prueba", :email => "prueba@testUs.com", :username => "prueba", :password => "123456", :role_id => Role.find_by(name: "Viewer").id, :active => false}
                     ])
+
+projects = Project.create([
+    {:name => "Proyecto1", :description => "Descripcion del proyecto 1", :active => true, :public => true},
+    {:name => "Proyecto2", :description => "Descripcion del proyecto 2", :active => true, :public => false}
+                          ])
+
+assigns = Assign.create([
+    {:user_id => User.find_by(name: "Manuel").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(surname: "Designer").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(surname: "Junior").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(name: "Viewer").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(name: "Prueba").id, :project_id => Project.find_by(name:"Proyecto1").id}
+                        ])
