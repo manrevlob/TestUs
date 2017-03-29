@@ -33,6 +33,7 @@ img{max-width:100%; display:block;}
 body{
     background:#CF423C;
     font-family: 'Roboto', sans-serif;
+    padding-top: 50px;
 }
 body a{
     transition: 0.5s all;
@@ -113,6 +114,13 @@ p.footer-class a{
 }
 p.footer-class a:hover{
     color:#6b7072;
+}
+.error{
+    background-color: #ffd9d9;
+    font-size: small;
+    margin: 0px 0 0.8em 0;
+    border: 1px solid #cf423c;
+    padding: 0.8em;
 }
 /*--content--*/
 .content{

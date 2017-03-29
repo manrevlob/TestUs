@@ -6,9 +6,42 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </head>
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #7a1631; display: table;
+        table-layout: fixed; width: 100%; padding-right: 25px;">
+    <div class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li>
+          <div>
+              <a href="?locale=en">EN </a>
+              |
+              <a href="?locale=es">ES </a>
+          </div>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <%= current_user.username%>
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ver perfil</a></li>
+                  <li>
+                    <%= link_to t('signOut'), destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+
+
+    </nav>
+
   <% unless flash.empty? %>
       <script type="text/javascript">
           toastr.options = {
@@ -37,15 +70,7 @@
   <% end %>
   <div class="header">
     <div class="header-left">
-      <div class="logo">
-          <%= image_tag("Us-Logo.png", :alt => "logo") %>
-      </div>
         <%= render "layouts/menu" %>
-      <ul class="social-in">
-        <li>
-          <%= link_to fa_icon("power-off"), destroy_user_session_path, method: :delete %>
-        </li>
-      </ul>
       <%= render "layouts/footer" %>
     </div>
     <!-- VERSION MOVIL -->

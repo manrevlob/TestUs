@@ -6,16 +6,10 @@ Rails.application.routes.draw do
       passwords: 'users/passwords'
   }
 
-  # scope '/:locale' do
-    resources :users
-  # end
-
-  # scope "(:locale)", locale: /en|es/ do
-  #   resources :users, :manages, :projects
-  # end
+  resources :users
 
   resources :manages
-  resources :roles
+  resources :roles, except: :show
   resources :projects
 
   root 'welcome#index'
