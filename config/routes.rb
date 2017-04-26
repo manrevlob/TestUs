@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   }
 
   resources :users
-
   resources :manages
   resources :roles, except: :show
   resources :projects
+  resources :assigns
+
+  # match 'assigns/:id/assignProject' => 'assigns#assignProject', via: [:get, :patch, :put], as: :assigns_assignProject
+  # match 'assigns/:id/unAssignProject' => 'assigns#unAssignProject', via: [:get, :patch, :put], as: :assigns_unAssignProject
 
   root 'welcome#index'
 

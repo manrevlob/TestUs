@@ -12,3 +12,5 @@ es:
   platforms: "Plataformas"
   createNew: "Crear nuevo"
   listAll: "Ver todos"
+  projectAssign: "Asignar proyecto"
+  managePermissions: "Permisos roles"

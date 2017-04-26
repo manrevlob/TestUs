@@ -10,13 +10,19 @@
         </li>
         <li>
           <%= link_to new_user_path do %>
-              <%= fa_icon("plus") %>
+              <%= fa_icon("user-plus") %>
               <%= t('createNew') %>
           <% end %>
         <li>
           <%= link_to roles_path do %>
               <%= fa_icon("list") %>
               <%= t('userRole') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to manages_path do %>
+              <%= fa_icon("users") %>
+              <%= t('managePermissions') %>
           <% end %>
         </li>
       </ul>
@@ -33,6 +39,12 @@
           <%= link_to new_project_path do %>
               <%= fa_icon("plus") %>
               <%= t('createNew') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to assigns_path do %>
+              <%= fa_icon("share") %>
+              <%= t('projectAssign') %>
           <% end %>
         </li>
       </ul>

@@ -2,6 +2,8 @@ en:
   userList:               "User List"
   userEdit:               "User Edit"
   userNew:                "User New"
+  userAssign:             "User Assign"
+  userNotAssign:          "User not Assign"
   userName:               "Name"
   userSurname:            "Surname"
   userEmail:              "Email"

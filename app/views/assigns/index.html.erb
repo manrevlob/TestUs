@@ -1,0 +1,53 @@
+<h1><%= t('userAssign') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t('userName') %></th>
+        <th><%= t('userSurname') %></th>
+        <th><%= t('userEmail') %></th>
+        <th colspan="2"><%= t('userRole') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @usersAssign.each do |userA| %>
+        <tr>
+          <td class="col-md-3"><%= userA.name %></td>
+          <td class="col-md-3"><%= userA.surname %></td>
+          <td class="col-md-3"><%= userA.email %></td>
+          <td class="col-md-3"><%= userA.role.name %></td>
+          <td><%= link_to fa_icon("times") , edit_assign_path(userA.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h1><%= t('userNotAssign') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('userName') %></th>
+      <th><%= t('userSurname') %></th>
+      <th><%= t('userEmail') %></th>
+      <th colspan="2"><%= t('userRole') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @usersNotAssign.each do |userNA| %>
+        <tr>
+          <td class="col-md-3"><%= userNA.name %></td>
+          <td class="col-md-3"><%= userNA.surname %></td>
+          <td class="col-md-3"><%= userNA.email %></td>
+          <td class="col-md-3"><%= userNA.role.name %></td>
+          <td><%= link_to fa_icon("check") , edit_assign_path(userNA.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

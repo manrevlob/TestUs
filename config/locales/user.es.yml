@@ -2,6 +2,8 @@ es:
   userList:               "Lista de usuarios"
   userEdit:               "Editar usuario"
   userNew:                "Nuevo usuario"
+  userAssign:             "Usuario/s asignados"
+  userNotAssign:          "Usuario/s no asignados"
   userName:               "Nombre"
   userSurname:            "Apellidos"
   userEmail:              "Correo"

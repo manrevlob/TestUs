@@ -12,4 +12,6 @@ en:
   platforms: "Platforms"
   createNew: "Create new"
   listAll: "List all"
+  projectAssign: "Assign project"
+  managePermissions: "Permissions role"
 
