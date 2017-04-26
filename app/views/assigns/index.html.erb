@@ -18,7 +18,7 @@
           <td class="col-md-3"><%= userA.surname %></td>
           <td class="col-md-3"><%= userA.email %></td>
           <td class="col-md-3"><%= userA.role.name %></td>
-          <td><%= link_to fa_icon("times") , edit_assign_path(userA.id) %></td>
+          <td><%= link_to fa_icon("arrow-down") , edit_assign_path(userA.id) %></td>
         </tr>
     <% end %>
     </tbody>
@@ -45,7 +45,7 @@
           <td class="col-md-3"><%= userNA.surname %></td>
           <td class="col-md-3"><%= userNA.email %></td>
           <td class="col-md-3"><%= userNA.role.name %></td>
-          <td><%= link_to fa_icon("check") , edit_assign_path(userNA.id) %></td>
+          <td><%= link_to fa_icon("arrow-up") , edit_assign_path(userNA.id) %></td>
         </tr>
     <% end %>
     </tbody>

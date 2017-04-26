@@ -7,10 +7,11 @@ class RolesController < ApplicationController
 
   def update
     if @role.update(role_params)
-      flash[:success] = "Role updated"
+      flash[:success] = t('roleEdited')
       redirect_to roles_path
     else
-      render 'edit'
+      flash[:error] = t('roleEditedError')
+      redirect_to edit_role_path
     end
 
   end
@@ -22,22 +23,22 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     if @role.save
-      flash[:success] = "Role created"
+      flash[:success] = t('roleCreated')
       redirect_to roles_path
     else
+      flash[:error] = t('roleCreatedError')
       redirect_to new_role_path
     end
   end
 
   def destroy
     if @role.destroy
-    flash[:success] = "Role deleted"
-    redirect_to roles_path
+      flash[:success] = t('roleDeleted')
+      redirect_to roles_path
     else
-      flash[:error] = "muertee!!"
-
+      flash[:error] = t('roleDeletedError')
+      redirect_to roles_path
     end
-
   end
 
   private

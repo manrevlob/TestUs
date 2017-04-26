@@ -3,13 +3,11 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /projects
-  # GET /projects.json
   def index
     @projects = Project.all
   end
 
   # GET /projects/1
-  # GET /projects/1.json
   def show
   end
 
@@ -23,42 +21,38 @@ class ProjectsController < ApplicationController
   end
 
   # POST /projects
-  # POST /projects.json
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+        flash[:success] = t('projectCreated')
+        redirect_to projects_path
       else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        flash[:error] = t('projectCreatedError')
+        redirect_to new_project_path
       end
-    end
   end
 
   # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
+
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
+        flash[:success] = t('projectEdited')
+        redirect_to projects_path
       else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        flash[:error] = t('projectEditedError')
+        redirect_to edit_project_path
       end
-    end
   end
 
   # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
+    if @project.destroy
+      flash[:success] = t('projectDeleted')
+      redirect_to projects_path
+    else
+      flash[:error] = t('projectDeletedError')
+      redirect_to projects_path
     end
   end
 

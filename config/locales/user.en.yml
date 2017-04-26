@@ -12,7 +12,3 @@ en:
   userPasswordPH:         "Password (6 characters minimum)"
   userConfPassword:       "Confirm password"
   userActive:             "Active"
-  userRole:               "Role"
-  userDescription:        "Description"
-  userSave:               "User saved"
-  userDelete:             "User deleted"
