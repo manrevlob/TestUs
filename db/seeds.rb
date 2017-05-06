@@ -109,6 +109,8 @@ projects = Project.create([
 
 assigns = Assign.create([
     {:user_id => User.find_by(name: "Manuel").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(name: "Francisco").id, :project_id => Project.find_by(name:"Proyecto1").id},
+    {:user_id => User.find_by(name: "Francisco").id, :project_id => Project.find_by(name:"Proyecto2").id},
     {:user_id => User.find_by(surname: "Designer").id, :project_id => Project.find_by(name:"Proyecto1").id},
     {:user_id => User.find_by(surname: "Junior").id, :project_id => Project.find_by(name:"Proyecto1").id},
     {:user_id => User.find_by(name: "Viewer").id, :project_id => Project.find_by(name:"Proyecto1").id},

@@ -3,7 +3,7 @@ class AssignsController < ApplicationController
 
   def index
 
-    @usersAssign = User.joins(:assign).where('assigns.project_id' => 1)
+    @usersAssign = User.joins(:assign).where('assigns.project_id' => session[:project]["id"])
     @usersAll = User.all
     @usersNotAssign ||= []
 
@@ -24,13 +24,13 @@ class AssignsController < ApplicationController
   def edit
 
     @user = User.find(params[:id])
-    @assigns = Assign.where('project_id = ? AND user_id = ?', 1, @user.id)
+    @assigns = Assign.where('project_id = ? AND user_id = ?', session[:project]["id"], @user.id)
     if @assigns.any?
         @assigns.each do |ass|
           ass.destroy
         end
     else
-      @assign = Assign.new(project_id: 1, user_id: @user.id)
+      @assign = Assign.new(project_id: session[:project]["id"], user_id: @user.id)
       @assign.save
     end
 
