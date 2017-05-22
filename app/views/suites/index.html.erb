@@ -1,0 +1,25 @@
+<h1><%= t('suites') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('suiteName') %></th>
+      <th colspan="5"><%= t('suiteDescription') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @suites.each do |suite| %>
+        <tr>
+          <td class="col-md-3"><%= suite.name %></td>
+          <td class="col-md-9"><%= suite.description %></td>
+          <td title="<%= t('suiteEditList') %>"><%= link_to fa_icon("pencil") , edit_suite_path(suite) %></td>
+          <td title="<%= t('suiteDeleteList') %>"><%= link_to fa_icon("remove") , suite, method: :delete, data: { confirm: t('confirmDelete') } %></td>
+          <td title="<%= t('suiteAddCaseList') %>"><%= link_to fa_icon("plus") , new_suite_case_path(suite_id: suite.id) %></td>
+          <td title="<%= t('suiteCaseList') %>"><%= link_to fa_icon("vcard-o") , suite_cases_path(suite_id: suite.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

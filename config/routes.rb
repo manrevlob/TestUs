@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   resources :roles, except: :show
   resources :projects
   resources :assigns
-  resources :suites
-
-  # match 'assigns/:id/assignProject' => 'assigns#assignProject', via: [:get, :patch, :put], as: :assigns_assignProject
-  # match 'assigns/:id/unAssignProject' => 'assigns#unAssignProject', via: [:get, :patch, :put], as: :assigns_unAssignProject
+  resources :suites , except: :show do
+    resources :cases , except: :show do
+      resources :steps, except: :show
+    end
+  end
 
   post '/set_current_project', to: 'application#set_current_project', as: :set_current_project
 

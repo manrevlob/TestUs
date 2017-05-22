@@ -1,0 +1,31 @@
+<h1 style="text-align: left;"><%= t('case')%> <%= @case.title %></h1>
+
+<%= link_to t('back'), suite_cases_path(suite_id: @suite.id), class: "btn btn-default" %>
+
+<%= render 'form', step: @step %>
+
+<h1 style="text-align: left;"><%= t('steps') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('stepAction') %></th>
+      <th colspan="2"><%= t('stepExpectedResult') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @steps.each do |step| %>
+        <tr>
+          <td class="col-md-3"><%= step.action %></td>
+          <td class="col-md-9"><%= step.expectedResult %></td>
+          <td title="<%= t('stepDeleteList') %>">
+            <%= link_to fa_icon("remove"),
+                        suite_case_step_path(suite_id: @case.suite_id, case_id: @case.id, id: step.id), method: :delete, data: {confirm: t('confirmDelete')} %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

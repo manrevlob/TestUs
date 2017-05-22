@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327164719) do
+ActiveRecord::Schema.define(version: 20170517153812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20170327164719) do
     t.integer  "project_id"
     t.index ["project_id"], name: "index_assigns_on_project_id", using: :btree
     t.index ["user_id"], name: "index_assigns_on_user_id", using: :btree
+  end
+
+  create_table "cases", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "suite_id"
+    t.index ["suite_id"], name: "index_cases_on_suite_id", using: :btree
   end
 
   create_table "manages", force: :cascade do |t|
@@ -47,6 +56,20 @@ ActiveRecord::Schema.define(version: 20170327164719) do
   end
 
   create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string   "action"
+    t.string   "expectedResult"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "suites", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
@@ -85,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170327164719) do
 
   add_foreign_key "assigns", "projects"
   add_foreign_key "assigns", "users"
+  add_foreign_key "cases", "suites"
   add_foreign_key "manages", "roles"
   add_foreign_key "manages", "zones"
   add_foreign_key "users", "roles"

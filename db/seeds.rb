@@ -116,3 +116,16 @@ assigns = Assign.create([
     {:user_id => User.find_by(name: "Viewer").id, :project_id => Project.find_by(name:"Proyecto1").id},
     {:user_id => User.find_by(name: "Prueba").id, :project_id => Project.find_by(name:"Proyecto1").id}
                         ])
+
+suites = Suite.create([
+    {:name => "Suite 1", :description => "Description suite 1"},
+    {:name => "Suite 2", :description => "Description suite 2"},
+    {:name => "Suite 3", :description => "Description suite 3"}
+                      ])
+
+cases =  Case.create([
+    {:title => "Case 1", :description => "Description case 1", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 2", :description => "Description case 2", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 3", :description => "Description case 3", :suite_id => Suite.find_by(name:"Suite 2").id},
+    {:title => "Case 4", :description => "Description case 4", :suite_id => Suite.find_by(name:"Suite 3").id}
+                     ])

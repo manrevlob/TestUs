@@ -1,0 +1,34 @@
+<div class="forms center-block" style="width: 60%;">
+  <%= form_for([@suite, @case, @step], :html => {:class => 'form-horizontal'}) do |f| %>
+      <% if @step.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>
+
+            <ul>
+              <% @step.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :faction, t('stepAction'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :action, placeholder: t('stepAction'), class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :fexpectedResult, t('stepExpectedResult'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_area :expectedResult, placeholder: t('stepExpectedResult'), class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= f.submit t('save'), class: "btn btn-default btn-primary" %>
+      </div>
+
+  <% end %>
+</div>
