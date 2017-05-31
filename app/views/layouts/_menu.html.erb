@@ -1,70 +1,86 @@
 <nav class="navigation">
   <ul class="mainmenu">
-    <li><a href=""><%= fa_icon("user") %> <%= t('users') %></a>
-      <ul class="submenu">
-        <li>
-          <%= link_to users_path do %>
-              <%= fa_icon("list") %>
-              <%= t('listAll') %>
-          <% end %>
+    <% if current_user.CanRead?(1) %>
+        <li><a href=""><%= fa_icon("user") %> <%= t('users') %></a>
+          <ul class="submenu">
+            <li>
+              <%= link_to users_path do %>
+                  <%= fa_icon("list") %>
+                  <%= t('listAll') %>
+              <% end %>
+            </li>
+            <% if current_user.CanCreate?(1) %>
+                <li>
+                  <%= link_to new_user_path do %>
+                      <%= fa_icon("user-plus") %>
+                      <%= t('createNew') %>
+                  <% end %>
+                <li>
+
+                  <%= link_to roles_path do %>
+                      <%= fa_icon("list") %>
+                      <%= t('roleList') %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to manages_path do %>
+                      <%= fa_icon("users") %>
+                      <%= t('managePermissions') %>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
         </li>
-        <li>
-          <%= link_to new_user_path do %>
-              <%= fa_icon("user-plus") %>
-              <%= t('createNew') %>
-          <% end %>
-        <li>
-          <%= link_to roles_path do %>
-              <%= fa_icon("list") %>
-              <%= t('roleList') %>
-          <% end %>
+    <% end %>
+
+    <% if current_user.CanRead?(2) %>
+        <li><a href=""><%= fa_icon("object-group") %> <%= t('projects') %></a>
+          <ul class="submenu">
+            <li>
+              <%= link_to projects_path do %>
+                  <%= fa_icon("list") %>
+                  <%= t('listAll') %>
+              <% end %>
+            </li>
+            <% if current_user.CanCreate?(2) %>
+                <li>
+                  <%= link_to new_project_path do %>
+                      <%= fa_icon("plus") %>
+                      <%= t('createNew') %>
+                  <% end %>
+                </li>
+            <% end %>
+            <% if current_user.CanUpdate?(2) %>
+                <li>
+                  <%= link_to assigns_path do %>
+                      <%= fa_icon("share") %>
+                      <%= t('projectAssign') %>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
         </li>
-        <li>
-          <%= link_to manages_path do %>
-              <%= fa_icon("users") %>
-              <%= t('managePermissions') %>
-          <% end %>
+    <% end %>
+    <% if current_user.CanRead?(3) %>
+        <li><a href=""><%= fa_icon("list-alt") %> <%= t('testSuites') %></a>
+          <ul class="submenu">
+            <li>
+              <%= link_to suites_path do %>
+                  <%= fa_icon("list") %>
+                  <%= t('listAll') %>
+              <% end %>
+            </li>
+            <% if current_user.CanCreate?(3) %>
+                <li>
+                  <%= link_to new_suite_path do %>
+                      <%= fa_icon("plus") %>
+                      <%= t('createNew') %>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href=""><%= fa_icon("object-group") %> <%= t('projects') %></a>
-      <ul class="submenu">
-        <li>
-          <%= link_to projects_path do %>
-              <%= fa_icon("list") %>
-              <%= t('listAll') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_project_path do %>
-              <%= fa_icon("plus") %>
-              <%= t('createNew') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to assigns_path do %>
-              <%= fa_icon("share") %>
-              <%= t('projectAssign') %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
-    <li><a href=""><%= fa_icon("list-alt") %> <%= t('testSuites') %></a>
-      <ul class="submenu">
-        <li>
-          <%= link_to suites_path do %>
-              <%= fa_icon("list") %>
-              <%= t('listAll') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_suite_path do %>
-              <%= fa_icon("plus") %>
-              <%= t('createNew') %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
+    <% end %>
     <li><a href=""><%= fa_icon("vcard-o") %> <%= t('testCases') %></a></li>
     <li><a href=""><%= fa_icon("cubes") %> <%= t('buildsRelease') %></a></li>
     <li><a href=""><%= fa_icon("paper-plane-o") %> <%= t('testPlans') %></a></li>
