@@ -23,12 +23,12 @@ If you like this solution, you might also want to check out the 1.0 version:
     border: 1px solid #D9E4E6;
 }
 .table tr:nth-child(odd) {
-    background-color: rgba(255, 4, 27, 0.05);
+    background-color: #eff4f6;
 }
 .table th {
     display: none;
     border: 1px solid #FFF;
-    background-color: #7A1631;
+    background-color: #3E606F;
     color: #FFF;
     padding: 1em;
 }

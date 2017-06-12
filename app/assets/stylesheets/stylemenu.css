@@ -16,15 +16,15 @@
 .mainmenu a {
     display: block;
     text-decoration: none;
-    background-color: #7A1631;
+    background-color: #272F32;
     padding: 10px;
     color: #f1f1f1;
 }
 
 /* add hover behaviour */
 .mainmenu a:hover {
-    color: #FFD462;
-    background-color: #3F0B1B;
+    color: #FFFFFF;
+    background-color: #161A1C;
 }
 
 
@@ -44,13 +44,13 @@
 */
 
 .submenu a {
-    background-color: #b93e38;
-    color: #FFD462;
+    background-color: #4A595E;
+    color: #FFFFFF;
 }
 
 /* hover behaviour for links inside .submenu */
 .submenu a:hover {
-    background-color: #FFD462;
+    background-color: #9DBDC6;
     color: #000;
 
 

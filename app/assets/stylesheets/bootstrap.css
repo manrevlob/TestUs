@@ -3115,8 +3115,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #7a1631;
-  border-color: #480c1c;
+  background-color: #272F32;
+  border-color: #000000;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -6754,4 +6754,11 @@ button.close {
     display: none !important;
   }
 }
+
+.navbar-nav > li{
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 5px;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
