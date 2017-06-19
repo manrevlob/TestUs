@@ -4,7 +4,7 @@ class StepsController < ApplicationController
 
   # GET /steps
   def index
-    @steps = Step.all
+    @steps = Step.where('case_id' => @case.id)
     @step = Step.new
   end
 

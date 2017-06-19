@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517153812) do
+ActiveRecord::Schema.define(version: 20170612164348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20170517153812) do
     t.integer  "project_id"
     t.index ["project_id"], name: "index_assigns_on_project_id", using: :btree
     t.index ["user_id"], name: "index_assigns_on_user_id", using: :btree
+  end
+
+  create_table "builds", force: :cascade do |t|
+    t.boolean  "active"
+    t.boolean  "isOpen"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "releaseDate"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_builds_on_project_id", using: :btree
   end
 
   create_table "cases", force: :cascade do |t|
@@ -46,6 +58,17 @@ ActiveRecord::Schema.define(version: 20170517153812) do
     t.index ["zone_id"], name: "index_manages_on_zone_id", using: :btree
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.boolean  "active"
+    t.boolean  "public"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "build_id"
+    t.index ["build_id"], name: "index_plans_on_build_id", using: :btree
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -67,6 +90,8 @@ ActiveRecord::Schema.define(version: 20170517153812) do
     t.string   "expectedResult"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "case_id"
+    t.index ["case_id"], name: "index_steps_on_case_id", using: :btree
   end
 
   create_table "suites", force: :cascade do |t|
@@ -108,8 +133,11 @@ ActiveRecord::Schema.define(version: 20170517153812) do
 
   add_foreign_key "assigns", "projects"
   add_foreign_key "assigns", "users"
+  add_foreign_key "builds", "projects"
   add_foreign_key "cases", "suites"
   add_foreign_key "manages", "roles"
   add_foreign_key "manages", "zones"
+  add_foreign_key "plans", "builds"
+  add_foreign_key "steps", "cases"
   add_foreign_key "users", "roles"
 end

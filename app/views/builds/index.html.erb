@@ -1,0 +1,31 @@
+<h1><%= t('builds') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('buildName') %></th>
+      <th><%= t('buildActive') %></th>
+      <th><%= t('buildIsOpen') %></th>
+      <th><%= t('buildReleaseDate') %></th>
+      <th colspan="5"><%= t('buildDescription') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @builds.each do |build| %>
+        <tr>
+          <td class="col-md-2"><%= build.name %></td>
+          <td class="col-md-1"><%= build.active %></td>
+          <td class="col-md-1"><%= build.isOpen %></td>
+          <td class="col-md-2"><%= build.releaseDate %></td>
+          <td class="col-md-6"><%= build.description %></td>
+          <td title="<%= t('buildEditList') %>"><%= link_to fa_icon("pencil") , edit_build_path(build) %></td>
+          <td title="<%= t('buildDeleteList') %>"><%= link_to fa_icon("remove") , build, method: :delete, data: { confirm: t('confirmDelete') } %></td>
+          <td title="<%= t('buildAddPlanList') %>"><%= link_to fa_icon("plus") , new_build_plan_path(build_id: build.id) %></td>
+          <td title="<%= t('buildPlanList') %>"><%= link_to fa_icon("vcard-o") , build_plans_path(build_id: build.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

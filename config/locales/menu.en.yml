@@ -15,4 +15,6 @@ en:
   projectAssign: "Assign project"
   managePermissions: "Permissions role"
   suites: "Suites"
-
+  buildRelease: "Build / Release"
+  builds: "Builds"
+  plans: "Plans"

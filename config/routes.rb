@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   resources :assigns
   resources :suites , except: :show do
     resources :cases , except: :show do
-      resources :steps, except: :show
+      resources :steps, except: [:show, :edit]
     end
+  end
+  resources :builds , except: :show do
+    resources :plans , except: :show
   end
 
   post '/set_current_project', to: 'application#set_current_project', as: :set_current_project

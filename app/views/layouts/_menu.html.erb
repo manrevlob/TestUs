@@ -81,8 +81,22 @@
           </ul>
         </li>
     <% end %>
-    <li><a href=""><%= fa_icon("vcard-o") %> <%= t('testCases') %></a></li>
-    <li><a href=""><%= fa_icon("cubes") %> <%= t('buildsRelease') %></a></li>
+    <li><a href=""><%= fa_icon("cubes") %> <%= t('buildRelease') %></a>
+      <ul class="submenu">
+        <li>
+          <%= link_to builds_path do %>
+              <%= fa_icon("list") %>
+              <%= t('listAll') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_build_path do %>
+              <%= fa_icon("plus") %>
+              <%= t('createNew') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
     <li><a href=""><%= fa_icon("paper-plane-o") %> <%= t('testPlans') %></a></li>
     <li><a href=""><%= fa_icon("flask") %> <%= t('testExecution') %></a></li>
     <li><a href=""><%= fa_icon("tags") %> <%= t('keywords') %></a></li>

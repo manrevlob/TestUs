@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'font-awesome-rails'
 gem 'toastr-rails'
 gem 'tinymce-rails', '~> 4.3', '>= 4.3.13'
+gem 'bootstrap-datepicker-rails'

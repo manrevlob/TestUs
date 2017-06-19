@@ -1,0 +1,51 @@
+<div class="forms center-block" style="width: 60%;">
+  <%= form_for @build, :html => {:class => 'form-horizontal'} do |f| %>
+      <% @build.errors.full_messages.each do |m| %>
+          <div class="error">
+            * <%= m %>
+          </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :fname, t('buildName'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :name, placeholder: t('buildName'), class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :freleaseDate, t('buildReleaseDate'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :releaseDate, placeholder: t('buildReleaseDate'), class: 'form-control datepicker', data: {provide: 'datepicker'} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :factive, t('buildActive'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.check_box :active, placeholder: t('buildActive'), class: 'check' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :fisOpen, t('buildIsOpen'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.check_box :isOpen, placeholder: t('buildIsOpen'), class: 'check' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :fdescription, t('buildDescription'), class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_area :description, placeholder: t('buildDescription'), class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= f.submit t('save'), class: "btn btn-default btn-primary" %>
+        <%= link_to t('back'), builds_path, class: "btn btn-default" %>
+      </div>
+
+  <% end %>
+</div>
+

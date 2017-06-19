@@ -1,6 +1,7 @@
 class CasesController < ApplicationController
   before_action :set_case, only: [:edit, :update, :destroy]
   before_action :param_suite
+  before_action :authenticate_user!
 
   # GET /suite/cases
   def index

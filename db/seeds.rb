@@ -129,3 +129,24 @@ cases =  Case.create([
     {:title => "Case 3", :description => "Description case 3", :suite_id => Suite.find_by(name:"Suite 2").id},
     {:title => "Case 4", :description => "Description case 4", :suite_id => Suite.find_by(name:"Suite 3").id}
                      ])
+
+steps =  Step.create([
+    {:action => "Step 1 - Case 1", :expectedResult => "Description step 1", :case_id => Case.find_by(title:"Case 1").id},
+    {:action => "Step 2 - Case 1", :expectedResult => "Description step 2", :case_id => Case.find_by(title:"Case 1").id},
+    {:action => "Step 3 - Case 1", :expectedResult => "Description step 3", :case_id => Case.find_by(title:"Case 1").id},
+    {:action => "Step 1 - Case 2", :expectedResult => "Description step 1", :case_id => Case.find_by(title:"Case 2").id},
+    {:action => "Step 2 - Case 2", :expectedResult => "Description step 2", :case_id => Case.find_by(title:"Case 2").id},
+    {:action => "Step 1 - Case 3", :expectedResult => "Description step 1", :case_id => Case.find_by(title:"Case 3").id},
+    {:action => "Step 2 - Case 3", :expectedResult => "Description step 2", :case_id => Case.find_by(title:"Case 3").id},
+    {:action => "Step 1 - Case 4", :expectedResult => "Description step 1", :case_id => Case.find_by(title:"Case 4").id}
+                     ])
+
+builds = Build.create([
+    {:active => true, :isOpen => true, :name => "Build 1", :description => "Description build 1", :releaseDate => '01/12/2017', :project_id => Project.find_by(name:"Proyecto1").id}
+                     ])
+
+plans = Plan.create([
+    {:active => true, :public => true, :name => "Plan 1", :description => "Description plan 1", :build_id => Build.find_by(name:"Build 1").id},
+    {:active => true, :public => true, :name => "Plan 2", :description => "Description plan 2", :build_id => Build.find_by(name:"Build 1").id},
+    {:active => true, :public => true, :name => "Plan 3", :description => "Description plan 3", :build_id => Build.find_by(name:"Build 1").id}
+                    ])

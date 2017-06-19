@@ -1,0 +1,27 @@
+<h1><%= t('plans') %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('planName') %></th>
+      <th><%= t('planActive') %></th>
+      <th><%= t('planPublic') %></th>
+      <th colspan="3"><%= t('planDescription') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @plans.each do |plan| %>
+        <tr>
+          <td class="col-md-3"><%= plan.name %></td>
+          <td class="col-md-1"><%= plan.active %></td>
+          <td class="col-md-1"><%= plan.public %></td>
+          <td class="col-md-6"><%= plan.description %></td>
+          <td title="<%= t('planEditList') %>"><%= link_to fa_icon("pencil") , edit_build_plan_path(build_id: plan.build.id, id: plan.id) %></td>
+          <td title="<%= t('planDeleteList') %>"><%= link_to fa_icon("remove") , build_plans_path(build_id: plan.build.id, id: plan.id), method: :delete, data: { confirm: t('confirmDelete') } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

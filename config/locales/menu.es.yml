@@ -15,3 +15,6 @@ es:
   projectAssign: "Asignar proyecto"
   managePermissions: "Permisos roles"
   suites: "Conjuntos"
+  buildRelease: "Paquete / Versión"
+  builds: "Paquetes de prueba"
+  plans: "Planes de prueba"
