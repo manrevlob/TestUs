@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612164348) do
+ActiveRecord::Schema.define(version: 20170623194530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20170612164348) do
     t.datetime "updated_at",  null: false
     t.integer  "project_id"
     t.index ["project_id"], name: "index_builds_on_project_id", using: :btree
+  end
+
+  create_table "case_plans", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "case_id"
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.index ["case_id"], name: "index_case_plans_on_case_id", using: :btree
+    t.index ["plan_id"], name: "index_case_plans_on_plan_id", using: :btree
+    t.index ["user_id"], name: "index_case_plans_on_user_id", using: :btree
   end
 
   create_table "cases", force: :cascade do |t|
@@ -134,6 +145,9 @@ ActiveRecord::Schema.define(version: 20170612164348) do
   add_foreign_key "assigns", "projects"
   add_foreign_key "assigns", "users"
   add_foreign_key "builds", "projects"
+  add_foreign_key "case_plans", "cases"
+  add_foreign_key "case_plans", "plans"
+  add_foreign_key "case_plans", "users"
   add_foreign_key "cases", "suites"
   add_foreign_key "manages", "roles"
   add_foreign_key "manages", "zones"

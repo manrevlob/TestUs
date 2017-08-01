@@ -12,3 +12,4 @@ es:
   userPasswordPH:         "Contraseña (6 caracteres minimos)"
   userConfPassword:       "Confirmar contraseña"
   userActive:             "Activo"
+  userRole:               "Rol"

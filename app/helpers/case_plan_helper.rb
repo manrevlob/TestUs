@@ -1,0 +1,2 @@
+module CasePlanHelper
+end

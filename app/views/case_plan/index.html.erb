@@ -1,0 +1,33 @@
+<h1><%= t('plan') %> <%= @plan.name %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('caseName') %></th>
+      <th colspan="2"><%= t('caseDescription') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @cases.each do |casee| %>
+        <tr>
+          <td><%= casee.title %></td>
+          <td><%= casee.description %></td>
+          <td><%= check_box_tag("cases[]", casee.id)%></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br/>
+<div class="form-group">
+  <%= label_tag t('users')+':', nil, class: 'col-md-1 control-label' %>
+  <div class="col-md-5">
+    <%= collection_select(:post, :user_id, @users, :id, :name, {:prompt=>true}, {:class=>'form-control'}) %>
+  </div>
+  <div class="col-md-4 col-sm-offset-2">
+    <input type="submit" value="<%= t('createNew') %>" class="btn btn-default btn-primary" data-disable-with="Save">
+    <input type="submit" value="<%= t('back') %>" class="btn btn-default" data-disable-with="Cancel">
+  </div>
+</div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'case_plan/index'
+
   devise_for :users, controllers: {
       registrations: 'users/registrations',
       sessions: 'users/sessions',
@@ -17,8 +19,12 @@ Rails.application.routes.draw do
     end
   end
   resources :builds , except: :show do
-    resources :plans , except: :show
+    resources :plans , except: :show do
+      resources :case_plan , except: :show
+    end
   end
+
+
 
   post '/set_current_project', to: 'application#set_current_project', as: :set_current_project
 

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # Relaciones
   belongs_to :role
   has_many :assign
+  has_many :case_plans
 
   after_initialize do |user|
     unless user.role.nil?
