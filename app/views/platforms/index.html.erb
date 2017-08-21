@@ -1,0 +1,23 @@
+<h1>Platforms</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @platforms.each do |platform| %>
+          <tr>
+            <td class="col-md-2"><%= platform.name %></td>
+            <td class="col-md-10"><%= platform.description %></td>
+            <td><%= link_to fa_icon("pencil"), edit_platform_path(platform) %></td>
+            <td><%= link_to fa_icon("remove") , platform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

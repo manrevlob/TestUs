@@ -1,0 +1,24 @@
+<h1>Test Execution</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Plan name</th>
+      <th>Case title</th>
+      <th colspan="2">Case description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @case_plans.each do |cps| %>
+        <tr>
+          <td class="col-md-2"><%= cps.plan.name %></td>
+          <td class="col-md-2"><%= cps.case.title %></td>
+          <td class="col-md-8"><%= cps.case.description %></td>
+          <td><%= link_to fa_icon("wrench") , edit_execute_path(id: cps.plan.id, case_id: cps.case.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

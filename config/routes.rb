@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :executes
+  resources :keywords
+  resources :platforms
   get 'case_plan/index'
 
   devise_for :users, controllers: {

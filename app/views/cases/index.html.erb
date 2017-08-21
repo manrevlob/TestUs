@@ -5,6 +5,8 @@
     <thead>
     <tr>
       <th><%= t('caseTitle') %></th>
+      <th>Precondition</th>
+      <th>Time estimated</th>
       <th colspan="4"><%= t('caseDescription') %></th>
     </tr>
     </thead>
@@ -13,7 +15,9 @@
     <% @cases.each do |casee| %>
         <tr>
           <td class="col-md-3"><%= casee.title %></td>
-          <td class="col-md-9"><%= casee.description %></td>
+          <td class="col-md-2"><%= casee.precondition %></td>
+          <td class="col-md-2"><%= casee.timeEstimated %></td>
+          <td class="col-md-5"><%= casee.description %></td>
           <td title="<%= t('caseEditList') %>"><%= link_to fa_icon("pencil") , edit_suite_case_path(suite_id: casee.suite.id, id: casee.id) %></td>
           <td title="<%= t('caseDeleteList') %>"><%= link_to fa_icon("remove") , suite_case_path(suite_id: casee.suite.id, id: casee.id), method: :delete, data: { confirm: t('confirmDelete') } %></td>
           <td title="<%= t('caseStepList') %>"><%= link_to fa_icon("vcard-o") , suite_case_steps_path(suite_id: casee.suite.id, case_id: casee.id) %></td>

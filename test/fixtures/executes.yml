@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  summary: 
+  date: 
+  result: false
+  duration: 
+  status: 
+
+two:
+  summary: 
+  date: 
+  result: false
+  duration: 
+  status: 

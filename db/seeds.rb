@@ -124,10 +124,10 @@ suites = Suite.create([
                       ])
 
 cases =  Case.create([
-    {:title => "Case 1", :description => "Description case 1", :suite_id => Suite.find_by(name:"Suite 1").id},
-    {:title => "Case 2", :description => "Description case 2", :suite_id => Suite.find_by(name:"Suite 1").id},
-    {:title => "Case 3", :description => "Description case 3", :suite_id => Suite.find_by(name:"Suite 2").id},
-    {:title => "Case 4", :description => "Description case 4", :suite_id => Suite.find_by(name:"Suite 3").id}
+    {:title => "Case 1", :description => "Description case 1", :precondition => "Precondition case 1", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 2", :description => "Description case 2", :precondition => "Precondition case 2", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 3", :description => "Description case 3", :precondition => "Precondition case 3", :suite_id => Suite.find_by(name:"Suite 2").id},
+    {:title => "Case 4", :description => "Description case 4", :precondition => "Precondition case 4", :suite_id => Suite.find_by(name:"Suite 3").id}
                      ])
 
 steps =  Step.create([
@@ -150,3 +150,11 @@ plans = Plan.create([
     {:active => true, :public => true, :name => "Plan 2", :description => "Description plan 2", :build_id => Build.find_by(name:"Build 1").id},
     {:active => true, :public => true, :name => "Plan 3", :description => "Description plan 3", :build_id => Build.find_by(name:"Build 1").id}
                     ])
+
+case_plans = CasePlan.create([
+    {:case_id => Case.find_by(title:"Case 1").id, :plan_id => Plan.find_by(name:"Plan 1").id, :user_id => User.find_by(name:"Manuel").id},
+    {:case_id => Case.find_by(title:"Case 1").id, :plan_id => Plan.find_by(name:"Plan 1").id, :user_id => User.find_by(name:"Francisco").id},
+    {:case_id => Case.find_by(title:"Case 2").id, :plan_id => Plan.find_by(name:"Plan 1").id, :user_id => User.find_by(name:"Manuel").id},
+    {:case_id => Case.find_by(title:"Case 3").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id},
+    {:case_id => Case.find_by(title:"Case 4").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id}
+                             ])

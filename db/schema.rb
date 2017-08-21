@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623194530) do
+ActiveRecord::Schema.define(version: 20170821174738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,29 @@ ActiveRecord::Schema.define(version: 20170623194530) do
   create_table "cases", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "suite_id"
+    t.text     "precondition"
+    t.text     "timeEstimated"
+    t.index ["suite_id"], name: "index_cases_on_suite_id", using: :btree
+  end
+
+  create_table "executes", force: :cascade do |t|
+    t.string   "summary"
+    t.date     "date"
+    t.boolean  "result"
+    t.decimal  "duration",   precision: 10, scale: 2
+    t.string   "status"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "suite_id"
-    t.index ["suite_id"], name: "index_cases_on_suite_id", using: :btree
   end
 
   create_table "manages", force: :cascade do |t|
@@ -78,6 +97,13 @@ ActiveRecord::Schema.define(version: 20170623194530) do
     t.datetime "updated_at",  null: false
     t.integer  "build_id"
     t.index ["build_id"], name: "index_plans_on_build_id", using: :btree
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "projects", force: :cascade do |t|

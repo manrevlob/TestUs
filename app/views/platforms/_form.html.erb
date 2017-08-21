@@ -1,0 +1,28 @@
+<div class="forms center-block" style="width: 60%;">
+  <%= form_for @platform, :html => {:class => 'form-horizontal'} do |f| %>
+      <% @platform.errors.full_messages.each do |m| %>
+          <div class="error">
+            * <%= m %>
+          </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :fname, "Name", class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :fdescription, "Description", class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_area :description, placeholder: "Description", class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= f.submit t('save'), class: "btn btn-default btn-primary" %>
+        <%= link_to t('back'), platform_path, class: "btn btn-default" %>
+      </div>
+
+  <% end %>
+</div>
