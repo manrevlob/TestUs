@@ -24,27 +24,29 @@
       <div class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <%= form_tag(set_current_project_path, method: :post) do  %>
-              <%= collection_select @current_project, :id, @projects_can_select, :id, :name, {} ,{class: 'form-control', onchange: "$(this).parent('form').submit();"}%>
-          <% end %>
+
+            <%= form_tag(set_current_project_path, method: :post) do  %>
+                <%= collection_select @current_project, :id, @projects_can_select, :id, :name, {} ,{class: 'form-control', onchange: "$(this).parent('form').submit();"}%>
+            <% end %>
+
         </li>
         <li>
-          <div>
-              <a href="?locale=en">EN </a>
+          <div style="padding-top: 5px">
+              <a style="color: #FFFFFF" href="?locale=en">EN </a>
               |
-              <a href="?locale=es">ES </a>
+              <a style="color: #FFFFFF" href="?locale=es">ES </a>
           </div>
         </li>
         <% if user_signed_in? %>
-        <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username%> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Ver perfil</a></li>
-                  <li>
-                    <%= link_to t('signOut'), destroy_user_session_path, method: :delete %>
-                  </li>
-                </ul>
-        </li>
+          <li class="dropdown">
+            <a href="#" style="padding-top: 5px; color: #FFFFFF" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username%> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="<%=  %>">Ver Mensajes</a></li>
+              <li>
+                <%= link_to t('signOut'), destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
         <% end %>
       </ul>
     </div>

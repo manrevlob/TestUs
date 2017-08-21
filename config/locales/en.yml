@@ -20,11 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello:                "Hello world"
+  hello:                "Welcome to Test US"
   signIn:               "Sign in"
   signOut:              "Sign Out"
   signUp:               "Sign Up"
-  index:                "Index"
+  index:                "Home"
   show:                 "Show"
   edit:                 "Edit"
   back:                 "Back"

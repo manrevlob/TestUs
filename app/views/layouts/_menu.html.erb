@@ -1,5 +1,8 @@
 <nav class="navigation">
   <ul class="mainmenu">
+    <li>
+      <a href="<% link_to root_path %>"><%= fa_icon("home") %> <%= t('index') %></a>
+    </li>
     <% if current_user.CanRead?(1) %>
         <li><a href=""><%= fa_icon("user") %> <%= t('users') %></a>
           <ul class="submenu">

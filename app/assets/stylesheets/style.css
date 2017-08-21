@@ -215,7 +215,9 @@ p.footer-class a:hover{
     padding:1.5em;
     background:#FFFFFF;
     margin:1.5em;
-    height: 95%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
 }
 .work-top,.work-in{
     float:left;

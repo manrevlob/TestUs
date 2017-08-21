@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello:                "Hola Mundo"
+  hello:                "Bienvenido/a a Test US"
   signIn:               "Iniciar sesión"
   signOut:              "Cerrar sesión"
   signUp:               "Registrar usuario"
