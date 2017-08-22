@@ -1,29 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @folder.name %>: Messages</h1>
 
-<h1>Messages</h1>
-
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
     <tr>
       <th>Subjet</th>
       <th>Body</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.subjet %></td>
-        <td><%= message.body %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= message.subjet %></td>
+          <td><%= message.body %></td>
+          <td><%= link_to 'Edit', edit_message_folder_message_path(id: message.id, folder_id: @folder.id) %></td>
+          <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>
+    </tbody>
+  </table>
+</div>

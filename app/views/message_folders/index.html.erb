@@ -10,11 +10,11 @@
 
     <tbody>
     <% @message_folders.each do |messageFolder| %>
-        <tr >
-          <td class="col-md-12"><a href="<%= message_folder_path(id: messageFolder) %>"><div><%= messageFolder.name%></div></a>  </td>
+        <tr>
+          <td class="col-md-12"><a href="<%= message_folder_messages_path(message_folder_id: messageFolder.id) %>"><div><%= messageFolder.name%></div></a>  </td>
           <td title="<%= t('messageFolderList') %>"><%= link_to fa_icon("vcard-o") , message_folder_path(id: messageFolder) %></td>
-          <td  title="<%= t('messageFolderEditList') %>"><%= link_to fa_icon("pencil") , edit_message_folder_path(id: messageFolder) %></td>
-          <td  title="<%= t('messageFolderDeleteList') %>"><%= link_to fa_icon("remove") , message_folder_path(id: messageFolder), method: :delete, data: { confirm: t('confirmDelete') } %></td>
+          <td title="<%= t('messageFolderEditList') %>"><%= link_to fa_icon("pencil") , edit_message_folder_path(id: messageFolder) %></td>
+          <td title="<%= t('messageFolderDeleteList') %>"><%= link_to fa_icon("remove") , message_folder_path(id: messageFolder), method: :delete, data: { confirm: t('confirmDelete') } %></td>
         </tr>
     <% end %>
     </tbody>
