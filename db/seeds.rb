@@ -158,3 +158,12 @@ case_plans = CasePlan.create([
     {:case_id => Case.find_by(title:"Case 3").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id},
     {:case_id => Case.find_by(title:"Case 4").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id}
                              ])
+
+plans = MessageFolder.create([
+                                 {:system => true, :name => "Inbox", :user => User.find_by(name: "Manuel")},
+                                 {:system => true, :name => "Sends", :user => User.find_by(name: "Manuel")},
+                                 {:system => true, :name => "Trash", :user => User.find_by(name: "Manuel")},
+                                 {:system => true, :name => "Inbox", :user => User.find_by(name: "Francisco")},
+                                 {:system => true, :name => "Sends", :user => User.find_by(name: "Francisco")},
+                                 {:system => true, :name => "Trash", :user => User.find_by(name: "Francisco")}
+                    ])

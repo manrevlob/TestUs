@@ -15,9 +15,10 @@ If you like this solution, you might also want to check out the 1.0 version:
     color: #024457;
     border-radius: 10px;
     border: 1px solid #167F92;
-    -moz-box-shadow: 0 0 5px 5px #888;
-    -webkit-box-shadow: 0 0 5px 5px#888;
-    box-shadow: 0 0 5px 5px #888;
+    -moz-box-shadow: 0 2px 15px #888;
+    -webkit-box-shadow: 0 2px 15px #888;
+    box-shadow: 0 2px 15px #888;
+
 }
 .table tr {
     border: 1px solid #D9E4E6;
@@ -61,7 +62,7 @@ If you like this solution, you might also want to check out the 1.0 version:
 .table td:first-child {
     display: table-cell;
     text-align: center;
-    border-right: 1px solid #D9E4E6;
+    border-right: 1px solid #eff4f6;
 }
 @media (min-width: 480px) {
     .table td {
@@ -71,6 +72,17 @@ If you like this solution, you might also want to check out the 1.0 version:
 .table th, .table td {
     text-align: left;
     margin: .5em 1em;
+}
+.table a {
+    text-decoration: none;
+    color: #272F32;
+}
+.table a:hover {
+    text-decoration: none;
+    color: #337ab7;
+}
+.table tr:hover td {
+    background-color: #cfdee3;
 }
 @media (min-width: 480px) {
     .table th, .table td {

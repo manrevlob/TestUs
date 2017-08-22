@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   resources :executes
   resources :keywords
   resources :platforms
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
       resources :steps, except: [:show, :edit]
     end
   end
+  resources :message_folders
   resources :builds , except: :show do
     resources :plans , except: :show do
       resources :case_plan , except: :show
