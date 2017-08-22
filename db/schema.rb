@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821174738) do
+ActiveRecord::Schema.define(version: 20170822162855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,28 @@ ActiveRecord::Schema.define(version: 20170821174738) do
     t.integer  "zone_id"
     t.index ["role_id"], name: "index_manages_on_role_id", using: :btree
     t.index ["zone_id"], name: "index_manages_on_zone_id", using: :btree
+  end
+
+  create_table "message_folders", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_message_folders_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "subjet"
+    t.text     "body"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.integer  "message_folder_id"
+    t.index ["message_folder_id"], name: "index_messages_on_message_folder_id", using: :btree
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_messages_on_sender_id", using: :btree
   end
 
   create_table "plans", force: :cascade do |t|
@@ -177,6 +199,8 @@ ActiveRecord::Schema.define(version: 20170821174738) do
   add_foreign_key "cases", "suites"
   add_foreign_key "manages", "roles"
   add_foreign_key "manages", "zones"
+  add_foreign_key "message_folders", "users"
+  add_foreign_key "messages", "message_folders"
   add_foreign_key "plans", "builds"
   add_foreign_key "steps", "cases"
   add_foreign_key "users", "roles"

@@ -158,3 +158,17 @@ case_plans = CasePlan.create([
     {:case_id => Case.find_by(title:"Case 3").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id},
     {:case_id => Case.find_by(title:"Case 4").id, :plan_id => Plan.find_by(name:"Plan 2").id, :user_id => User.find_by(name:"Manuel").id}
                              ])
+
+folders = MessageFolder.create([
+   {:system => true, :name => "InboxM", :user => User.find_by(name: "Manuel")},
+   {:system => true, :name => "SendsM", :user => User.find_by(name: "Manuel")},
+   {:system => true, :name => "TrashM", :user => User.find_by(name: "Manuel")},
+   {:system => true, :name => "InboxF", :user => User.find_by(name: "Francisco")},
+   {:system => true, :name => "SendsF", :user => User.find_by(name: "Francisco")},
+   {:system => true, :name => "TrashF", :user => User.find_by(name: "Francisco")}
+                            ])
+
+messages = Message.create([
+    {:subject => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "InboxF")},
+    {:subject => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "RecipientM")}
+                          ])
