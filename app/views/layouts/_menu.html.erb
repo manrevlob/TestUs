@@ -84,6 +84,7 @@
           </ul>
         </li>
     <% end %>
+    <% if current_user.CanRead?(5) %>
     <li><a href=""><%= fa_icon("cubes") %> <%= t('buildRelease') %></a>
       <ul class="submenu">
         <li>
@@ -100,7 +101,8 @@
         </li>
       </ul>
     </li>
-    <% if current_user.CanRead?(1) %>
+    <% end %>
+    <% if current_user.CanRead?(7) %>
     <li><a href=""><%= fa_icon("flask") %> <%= t('testExecution') %></a>
       <ul class="submenu">
         <li>
@@ -112,7 +114,7 @@
       </ul>
     </li>
     <% end %>
-    <% if current_user.CanRead?(1) %>
+    <% if current_user.CanRead?(8) %>
     <li><a href=""><%= fa_icon("tags") %> <%= t('keywords') %></a>
       <ul class="submenu">
         <li>
@@ -129,6 +131,8 @@
         </li>
       </ul>
     </li>
+    <% end %>
+    <% if current_user.CanRead?(9) %>
     <li><a href=""><%= fa_icon("laptop") %> <%= t('platforms') %></a>
       <ul class="submenu">
         <li>

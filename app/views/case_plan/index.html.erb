@@ -24,7 +24,7 @@
 <div class="form-group">
   <%= label_tag t('users')+':', nil, class: 'col-md-1 control-label' %>
   <div class="col-md-5">
-    <%= collection_select(:post, :user_id, @users, :id, :name, {:prompt=>true}, {:class=>'form-control'}) %>
+    <%= collection_select(:post, :user_id, @users, :id, :surname, {:prompt=>true}, {:class=>'form-control'}) %>
   </div>
   <div class="col-md-4 col-sm-offset-2">
     <input type="submit" value="<%= t('createNew') %>" class="btn btn-default btn-primary" data-disable-with="Save">
