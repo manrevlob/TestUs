@@ -2,13 +2,11 @@ class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
 
   # GET /keywords
-  # GET /keywords.json
   def index
     @keywords = Keyword.all
   end
 
   # GET /keywords/1
-  # GET /keywords/1.json
   def show
   end
 
@@ -22,43 +20,43 @@ class KeywordsController < ApplicationController
   end
 
   # POST /keywords
-  # POST /keywords.json
   def create
     @keyword = Keyword.new(keyword_params)
 
-    respond_to do |format|
-      if @keyword.save
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
-        format.json { render :show, status: :created, location: @keyword }
-      else
-        format.html { render :new }
-        format.json { render json: @keyword.errors, status: :unprocessable_entity }
-      end
+    if @keyword.save
+      flash[:success] = 'Keyword created'
+      redirect_to keywords_path
+    else
+      flash[:error] = 'Error Keyword created'
+      redirect_to new_keyword_path
     end
+
   end
 
   # PATCH/PUT /keywords/1
-  # PATCH/PUT /keywords/1.json
   def update
-    respond_to do |format|
-      if @keyword.update(keyword_params)
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully updated.' }
-        format.json { render :show, status: :ok, location: @keyword }
-      else
-        format.html { render :edit }
-        format.json { render json: @keyword.errors, status: :unprocessable_entity }
-      end
+
+    if @keyword.update(keyword_params)
+      flash[:success] = 'Keyword edited'
+      redirect_to keywords_path
+    else
+      flash[:error] = 'Error Keyword edited'
+      redirect_to keywords_path
     end
+
   end
 
   # DELETE /keywords/1
-  # DELETE /keywords/1.json
   def destroy
-    @keyword.destroy
-    respond_to do |format|
-      format.html { redirect_to keywords_url, notice: 'Keyword was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if @keyword.destroy
+      flash[:success] = 'Keyword deleted'
+      redirect_to keywords_path
+    else
+      flash[:error] = 'Error Keyword deleted'
+      redirect_to keywords_path
     end
+
   end
 
   private

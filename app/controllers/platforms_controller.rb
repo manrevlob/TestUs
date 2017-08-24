@@ -27,7 +27,7 @@ class PlatformsController < ApplicationController
 
     respond_to do |format|
       if @platform.save
-        redirect_to platform_path
+        redirect_to platforms_path
       else
         redirect_to new_platform_path
       end
@@ -39,7 +39,7 @@ class PlatformsController < ApplicationController
   def update
     respond_to do |format|
       if @platform.update(platform_params)
-        redirect_to platform_path
+        redirect_to platforms_path
       else
         redirect_to edit_platform_path
       end
@@ -50,7 +50,7 @@ class PlatformsController < ApplicationController
   # DELETE /platforms/1.json
   def destroy
     if @platform.destroy
-      redirect_to platform_path
+      redirect_to platforms_path
     end
   end
 

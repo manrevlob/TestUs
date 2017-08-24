@@ -124,10 +124,10 @@ suites = Suite.create([
                       ])
 
 cases =  Case.create([
-    {:title => "Case 1", :description => "Description case 1", :precondition => "Precondition case 1", :suite_id => Suite.find_by(name:"Suite 1").id},
-    {:title => "Case 2", :description => "Description case 2", :precondition => "Precondition case 2", :suite_id => Suite.find_by(name:"Suite 1").id},
-    {:title => "Case 3", :description => "Description case 3", :precondition => "Precondition case 3", :suite_id => Suite.find_by(name:"Suite 2").id},
-    {:title => "Case 4", :description => "Description case 4", :precondition => "Precondition case 4", :suite_id => Suite.find_by(name:"Suite 3").id}
+    {:title => "Case 1", :description => "Description case 1", :precondition => "Precondition case 1", :timeEstimated => "10", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 2", :description => "Description case 2", :precondition => "Precondition case 2", :timeEstimated => "5", :suite_id => Suite.find_by(name:"Suite 1").id},
+    {:title => "Case 3", :description => "Description case 3", :precondition => "Precondition case 3", :timeEstimated => "3", :suite_id => Suite.find_by(name:"Suite 2").id},
+    {:title => "Case 4", :description => "Description case 4", :precondition => "Precondition case 4", :timeEstimated => "15", :suite_id => Suite.find_by(name:"Suite 3").id}
                      ])
 
 steps =  Step.create([
@@ -169,6 +169,18 @@ folders = MessageFolder.create([
                             ])
 
 messages = Message.create([
-    {:subject => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "InboxF")},
-    {:subject => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "RecipientM")}
+    {:subjet => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "InboxF")},
+    {:subjet => "Subject 1", :body => "Body 1", :sender_id => User.find_by(name: "Manuel"), :recipient_id => User.find_by(name: "Francisco"), :message_folder_id => MessageFolder.find_by(name: "RecipientM")}
                           ])
+
+platforms = Platform.create([
+    {:name => "Platform 1", :description => "Description Platform 1"},
+    {:name => "Platform 2", :description => "Description Platform 2"},
+    {:name => "Platform 3", :description => "Description Platform 3"}
+                            ])
+
+keywords = Keyword.create([
+    {:name => "Keyword 1", :description => "Description Keyword 1"},
+    {:name => "Keyword 2", :description => "Description Keyword 2"},
+    {:name => "Keyword 3", :description => "Description Keyword 3"}
+                            ])
