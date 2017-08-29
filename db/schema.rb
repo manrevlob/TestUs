@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822162855) do
+ActiveRecord::Schema.define(version: 20170829110612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170822162855) do
     t.integer  "case_id"
     t.integer  "plan_id"
     t.integer  "user_id"
+    t.boolean  "isExecute"
     t.index ["case_id"], name: "index_case_plans_on_case_id", using: :btree
     t.index ["plan_id"], name: "index_case_plans_on_plan_id", using: :btree
     t.index ["user_id"], name: "index_case_plans_on_user_id", using: :btree
@@ -56,6 +57,27 @@ ActiveRecord::Schema.define(version: 20170822162855) do
     t.text     "precondition"
     t.text     "timeEstimated"
     t.index ["suite_id"], name: "index_cases_on_suite_id", using: :btree
+  end
+
+  create_table "execute_cases", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "status"
+    t.float    "duration"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_execute_cases_on_user_id", using: :btree
+  end
+
+  create_table "execute_steps", force: :cascade do |t|
+    t.string   "action"
+    t.string   "expectedResult"
+    t.string   "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "execute_case_id"
+    t.index ["execute_case_id"], name: "index_execute_steps_on_execute_case_id", using: :btree
   end
 
   create_table "executes", force: :cascade do |t|
@@ -197,6 +219,8 @@ ActiveRecord::Schema.define(version: 20170822162855) do
   add_foreign_key "case_plans", "plans"
   add_foreign_key "case_plans", "users"
   add_foreign_key "cases", "suites"
+  add_foreign_key "execute_cases", "users"
+  add_foreign_key "execute_steps", "execute_cases"
   add_foreign_key "manages", "roles"
   add_foreign_key "manages", "zones"
   add_foreign_key "message_folders", "users"

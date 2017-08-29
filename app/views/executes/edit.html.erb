@@ -2,6 +2,12 @@
 
 <%= link_to t('back'), executes_path, class: "btn btn-default" %>
 
+<%= form_tag(save_execution_path, method: :post) do  %>
+
+    <%= hidden_field(:case, :id, :value => @case.id)%>
+    <%= hidden_field(:plan, :id, :value => @plan.id)%>
+
+
 <div class="forms center-block" style="width: 60%;padding-bottom: 25px;">
   <div class="form-group">
     <span style="font-weight: bold">Case:</span> <%= @case.title %>
@@ -41,12 +47,7 @@
           <td class="col-md-5"><%= step.action %></td>
           <td class="col-md-5"><%= step.expectedResult %></td>
           <td class="col-md-2">
-            <select class="form-control">
-              <option>Not run</option>
-              <option>Passed</option>
-              <option>Failed</option>
-              <option>Blocked</option>
-            </select>
+          <%= select_tag "steps[#{step.id}]", options_for_select([['Not run'],['Passed'],['Failed'],['Blocked']])  %>
           </td>
         </tr>
     <% end %>
@@ -63,4 +64,5 @@
     <input type="submit" value="<%= t('save') %>" class="btn btn-default btn-primary" data-disable-with="Save">
     <input type="submit" value="<%= t('back') %>" class="btn btn-default" data-disable-with="Cancel">
   </div>
+  <% end %>
 </div>

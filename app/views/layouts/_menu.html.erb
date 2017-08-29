@@ -108,7 +108,13 @@
         <li>
           <%= link_to executes_path do %>
               <%= fa_icon("list") %>
-              <%= t('listAll') %>
+              <%= 'List assign to me' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to index_history_path do %>
+              <%= fa_icon("history") %>
+              <%= 'List history' %>
           <% end %>
         </li>
       </ul>
